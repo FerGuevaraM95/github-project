@@ -26,6 +26,23 @@ class UI {
                 </div>
             </div>
         `;
+        this.clearMessage();
+    }
+
+    showMessage(message, cssClass) {
+        const div = document.createElement('div');
+        div.className = cssClass;
+        div.appendChild(document.createTextNode(message));
+        const content = document.querySelector('.row');
+        const profile = document.querySelector('#profile');
+        content.insertBefore(div, profile);
+    }
+
+    clearMessage() {
+        const alertFound = document.querySelector('.alert');
+        if (alertFound) {
+            alertFound.remove();
+        }
     }
 }
 
