@@ -17,7 +17,31 @@
 </head>
 
 <body>
-    <h1>Github Clent</h1>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            <i class="fab fa-github"></i> Github Client
+        </a>
+        <form id="userForm" class="form-inline my-2 my-lg-0">
+            <input id="textSearch" class="form-control mr-sm-2" type="search" autofocus placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                Search
+            </button>
+        </form>
+    </nav>
+
+    <!-- APP -->
+    <div class="container">
+        <div class="row">
+            <div id="profile" class="col-md-4"></div>
+            <div class="col-md-8">
+                <div class="repositories"></div>
+            </div>
+        </div>
+    </div>
+
 </body>
+
 
 </html>
