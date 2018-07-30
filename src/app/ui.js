@@ -4,7 +4,6 @@ class UI {
     }
 
     showProfile(user) {
-        console.log(user);
         this.profile.innerHTML = `
             <div class="card mt-2 animated bounceInLeft">
                 <img class="card-img-top" src="${user.avatar_url}" />
@@ -18,7 +17,7 @@ class UI {
                         Followings: ${user.following}
                     </span>
                     <span class="badge badge-warning">
-                        Company: ${user.company}
+                        Repositories: ${user.public_repos}
                     </span>
                     <span class="badge badge-info d-block">
                         Blog: ${user.blog}
@@ -43,6 +42,31 @@ class UI {
         if (alertFound) {
             alertFound.remove();
         }
+    }
+
+    showRepositories(repositories) {
+        let template = '';
+        repositories.forEach(repo => {
+            template += `
+            <div class="card card-body mt-2 animated bounceInUp">
+                <div class="row">
+                    <div class="col-md-6">
+                    <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+                    </div>
+                    <div class="col-md-6">
+                        <span class="badge badge-primary">
+                            Languaje: ${repo.language}
+                        </span>
+                        <span class="badge badge-success">
+                            Forks: ${repo.forks_count}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        `;
+        })
+
+        document.getElementById('repositories').innerHTML = template;
     }
 }
 
